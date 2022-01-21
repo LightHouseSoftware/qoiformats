@@ -271,15 +271,15 @@ class QoiImage
 	{
 		auto actualIndex(uint i)
 		{
-			auto S = _info.getHeight;
+			auto S = _info.getWidth * _info.getHeight;
 		
 			return clamp(i, 0, S - 1);
 		}
 
 		auto actualIndex(uint i, uint j)
 		{
-			auto W = cast(size_t) clamp(i, 0, this.getWidth - 1);
-			auto H = cast(size_t) clamp(j, 0, this.getHeight - 1);
+			auto W = cast(uint) clamp(i, 0, this.getWidth - 1);
+			auto H = cast(uint) clamp(j, 0, this.getHeight - 1);
 			auto S = this.getArea;
 		
 			return clamp(W + H * this.getWidth, 0, S);
